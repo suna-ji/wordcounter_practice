@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import json #파이썬은 기본적으로 JSON표준 라이브러리 json을 제공하고 있는데 import json로 사용가능하다
+import collections
+import operator
 
 # Create your views here.
 
@@ -28,12 +30,23 @@ def result(request):
             if word in word_dictionary:
                 word_dictionary[word]+=1
             else:
-                word_dictionary[word] = 1  
-        data = { 'fulltext': fulltext, 'total': len(word_list), 'dictionary': list(word_dictionary.items())}
+                word_dictionary[word] = 1 
+        # od = collections.OrderedDict(sorted(word_dictionary.items())) 
+        temp = sorted(word_dictionary.items(), key=operator.itemgetter(1))
+        od = collections.OrderedDict(temp)
+
+        ol = list(od.values())       
+        maxnum = ol[-1]
+        keyword_list = []
+        for key, value in od.items(): 
+            if value == maxnum:
+                keyword_list.append(key)
+                keyword_list.append('   ')
+        data = { 'fulltext': fulltext, 'total': len(word_list), 'dictionary': list(word_dictionary.items()), 'od':list(od.items()), 'keyword_list':keyword_list}
         #JSON 인코딩
         # python object(Dictonay, List, Tuple) --(변경)-> JSON 문자열
         # 우선 json라이브러리 import하고 json.dumps()메소드를 써서 python Object를 문자열로 변환하면 된다   
         return  HttpResponse(json.dumps(data), "application/json")        
-    return render(request, 'result.html', {'fulltext':fulltext, 'total':len(word_list), 'dictionary':word_dictionary.items()})  
+    return render(request, 'result.html', {'fulltext':fulltext, 'total':len(word_list), 'dictionary':word_dictionary.items(), 'od':od.items(), 'keyword_list':keyword_list})  
 
     

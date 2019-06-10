@@ -1,118 +1,128 @@
-<h1>안녕하세요 여기서 글자를 세세요!</h1>
-
-<a href="{% url 'about' %}">ABOUT</a>
-
-<form action = "{% url 'result' %}">
-    <textarea cols = "40" rows ="10" name = "fulltext"></textarea> 
-    <br>
-    <input type="submit" value = "Count!">
-</form>
-
-
-
-
-
-
-<!-- 여기서부터 코드 따온거 -->
-<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Caminar by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
-    <meta content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" name="viewport" />
-    <meta content="Semantic-UI-Forest, collection of design, themes and templates for Semantic-UI." name="description" />
-    <meta content="Semantic-UI, Theme, Design, Template" name="keywords" />
-    <meta content="PPType" name="author" />
-    <meta content="#ffffff" name="theme-color" />
-    <title>과제하는겸 시멘틱이나 보자</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+	<head>
+		<title>워드카운터</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+	</head>
+	<body>
 
-  </head>
-  <body>
-    <div class="ui large top fixed hidden menu">
-      <div class="ui container">
-        <a class="active item">Home</a><a class="item" href="{% url 'about' %}">About</a><a class="item">Company</a><a class="item">Careers</a>
-        <div class="right menu">
-          <div class="item">
-            <a class="ui button">Log in</a>
-          </div>
-          <div class="item">
-            <a class="ui primary button">Sign Up</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--Sidebar Menu-->
-    <div class="ui vertical inverted sidebar menu">
-      <a class="active item">Home</a><a class="item" href="{% url 'about' %}">About</a><a class="item">Company</a><a class="item">Careers</a><a class="item">Login</a><a class="item">Signup</a>
-    </div>
-    <!--Page Contents-->
-    <div class="pusher">
-      <div class="ui inverted vertical masthead center aligned segment">
-        <div class="ui container">
-          <div class="ui large secondary inverted pointing menu">
-            <a class="toc item"><i class="sidebar icon"></i></a><a class="active item">Home</a><a class="item" href="{% url 'about' %}">About</a><a class="item">Company</a><a class="item">Careers</a>
-            <div class="right item">
-              <a class="ui inverted button">Log in</a><a class="ui inverted button">Sign Up</a>
-            </div>
-          </div>
-        </div>
-        <div class="ui text container">
-          <h1 class="ui inverted header">
-            Dongguk University
-          </h1>
-          <h2>
-            아 졸리다
-          </h2>
-          <div class="ui huge primary button">
-            <a href="https://dongguk.likelion.org" style="color:white">
-              GO<i class="right arrow icon"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="ui vertical stripe segment">
-        <div class="ui middle aligned stackable grid container">
-          <div class="row">
-            <div class="eight wide column">
-              <h3 class="ui header">
-                WORD COUNT
-              </h3>
-              
-                <div class="ui form">
-                  <div class="field">
-                    <textarea name='fulltext' id="fulltext">
-                    bftware safero even more computing platforms.</textarea>
-                  </div>                
-                </div>
-                <br>
-                <div class="center aligned column">
-                  <input type="submit" value="Count!" class="ui huge button primary" id="ajax_test">
-                </div>  
-              
-            </div>
-            <div class="eight wide right floated column" style="max-height: 30em; overflow-y: auto; ">
-              <table id="recv_result" class= "ui celled table" style=" word-wrap: break-word;">
+		<!-- Header -->
+			<header id="header">
+				<div class="logo"><a href="#">COUNT YOUR WRITING <span>by wordcounter</span></a></div>
+			</header>
+
+		<!-- Main -->
+			<section id="main">
+				<div class="inner">
+
+				<!-- One -->
+					<section id="one" class="wrapper style1">
+
+						<div class="image fit flush">
+							<img src="{% static 'images/pic02.jpg' %}" alt="" />
+						</div>
+						<header class="special">
+							<h2>여기서 글자를 세고 가장 많이 반복된 단어들을 살펴보세요!</h2>
+							
+						</header>
+						<div class="content">
+              <p>이곳에서 당신이 표현하고 싶은 글을 자유롭게 작성해보세요!</p>
+              <textarea name='fulltext' id="fulltext" style = "height: 20em;">
+                  나와 세계의 미래를 구하는 강력한 해법!
+                  기존의 상식을 뒤바꾸며 세기의 역작이 된 《총, 균, 쇠》, 《문명의 붕괴》, 《어제까지의 세계》의 저자 재레드 다이아몬드 교수의 문명연구 총결산 미래의 기회 편 『대변동: 위기, 선택, 변화』. 위기, 선택, 변화로 달라지는 미래를 완벽하게 통찰한 역작으로, 인류사적·문명사적으로 거대 담론을 논했던 기존의 저작과 달리 보다 구체적으로 현재와 미래의 세계에 집중한다. 
                   
-              </table>
-            </div>
-          </div>
-          
-          
-        </div>
-      </div>
-      <div class="ui vertical stripe segment">
-        <div class="ui text container" style="height: 30em; overflow-y: auto; "">
-            <h1>입력한 텍스트</h1>
-            <div id="recv_full"></div>
-        </div>
-      </div>
-      <div class="ui inverted vertical footer segment">
-        
-      </div>
-    </div>
+                  저자는 무엇이 위기인지 정의하고, 국가적 위기 해결을 위한 핵심 요인을 12가지로 설명한다. 이는 개인의 위기 극복에 영향을 주는 요인을 국가의 위기에 확대 적용한 것이다. 12가지 요인의 핵심은 자신의 능력과 가치를 정직하게 평가하여, 새롭게 닥친 환경에서 제대로 작동하는 부분과 바꿔야 하는 부분이 무엇인지 가려내고, 궁극적으로 선택적 변화를 이루는 것이다. 
+                  
+                  국가가 위기에 빠졌다는 국민적 합의, 무엇인가 해야 한다는 책임의 수용, 해결해야 할 문제를 규정하기 위한 울타리 세우기, 국가 정체성, 역사적으로 과거에 경험한 위기, 국가의 핵심 가치 등 12가지 요인을 바탕으로 각기 다른 환경에서 중대한 위기를 맞닥뜨렸던 핀란드와 일본부터 칠레와 인도네시아, 독일과 오스트레일리아, 그리고 미국까지, 7개 국가를 분석한다. 
+                  
+                  특히 저자는 지정학적으로 한국 사회와 가장 밀접한 일본과 미국이 당면한 위기에 대해 상세하게 분석하는데, 특유의 예리한 시선으로 현실을 적확하게 포착하며 앞으로 우리가 무엇을 선택하고 어떻게 변화할 것인지 최선의 해법을 제안한다. 국가 간 불평등, 환경 자원의 부족, 기후변화, 핵전쟁, 인구 변동 문제를 어떻게 타개할 수 있을지, 이후 세계의 전망과 과제를 냉철하게 파헤치고, 마지막으로 ‘위기는 변화를 위해 꼭 필요한 것인가?’라는 질문을 던진다.
+                  
+              </textarea>
+              <input type="submit" value="Count!" class="ui huge button primary" id="ajax_test">
+              <div class="eight wide right floated column" style="max-height: 30em; overflow-y: auto; "> 
+                <table id="recv_result" class= "ui celled table" style=" word-wrap: break-word;"></table>
+              </div> 
+              <div class="ui vertical stripe segment">
+                <div class="ui text container" style="width: 70em; height: 30em; overflow-y: auto;" >
+                    <h1>입력한 텍스트</h1>
+                    <div id="recv_full"></div>
+                    <br>
+                    <h1>키워드</h1>
+                    <div id="keyword"></div>
+                </div>
+              </div> 
+            </div> 
+
+            
+					</section>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js' %}"></script>
+			<script src="{% static 'js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'js/skel.min.js' %}"></script>
+			<script src="{% static 'js/util.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>
+
+<script>
+  $("#ajax_test").click(function(){
+
+    var full_text = $("#fulltext").val()
+
+    $.ajax({
+      type: 'GET',
+      url: "{% url 'result'%}",
+      data : {fulltext: full_text },
+
+      success: function(data){
+        // 키워드
+        $("#keyword").fadeOut().promise().done(
+          function(){
+            $("#keyword").html(data["keyword_list"])
+            $("#keyword").fadeIn(1000)}
+        ); 
+        // 풀텍스트
+        $("#recv_full").fadeOut().promise().done(
+          function(){
+            $("#recv_full").html(data["fulltext"])
+            $("#recv_full").fadeIn(1000)}
+        ); 
+        // 워드 카운트
+        $("#recv_result").fadeOut().promise().done(
+          function(){
+            input_html = "<table class='ui celled table'>"
+            data["od"]
+            $.each(data["od"], function(key,value){
+              if(key%2 == 0){
+                input_html += "<tr>"
+              }
+              input_html+= ("<td>" + value[0] + "</td><td>" + value[1] + "</td>")
+              if (key%2 == 1 ){
+                input_html += "</tr>"
+              }
+            })
+            $("#recv_result").html(input_html)
+            $("#recv_result").fadeIn(1000)
+          }
+        )
+
+      }
+
+
+    })
+    
+  })
+</script>
     
     <style type="text/css">
     #recv_result td{
@@ -228,46 +238,5 @@
         })
       ;
     </script>
-  </body>
+  
 </html>
-<script>
-  $("#ajax_test").click(function(){
-    var full_text = $("#fulltext").val()
-    $.ajax({
-      type: 'GET',
-      url: "{% url 'result'%}",
-      data : {fulltext: full_text },
-      success: function(data){
-        $("#recv_full").fadeOut().promise().done(
-          function(){
-            $("#recv_full").html(data["fulltext"])
-            $("#recv_full").fadeIn(1000)}
-        );        
-        $("#recv_result").fadeOut().promise().done(
-          function(){
-            input_html = "<table class='ui celled table'>"
-
-            
-
-            data["dictionary"]
-            
-            $.each(data["dictionary"], function(key,value){
-              if(key%2 == 0){
-                input_html += "<tr>"
-              }
-              input_html+= ("<td>" + value[0] + "</td><td>" + value[1] + "</td>")
-              if (key%2 == 1 ){
-                input_html += "</tr>"
-              }
-            })
-            $("#recv_result").html(input_html)
-            $("#recv_result").fadeIn(1000)
-          }
-        )
-      }
-
-
-    })
-    
-  })
-</script>
