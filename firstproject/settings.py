@@ -123,4 +123,4 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'firstproject', 'static')
 ]
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com','13.124.43.232']†
