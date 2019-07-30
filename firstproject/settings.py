@@ -25,7 +25,7 @@ SECRET_KEY = '@1l(_jrrb%#h0vrvx!kxde$69vuu$dqa=@z$my274%@de#o-nd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['13.124.43.232']
 
 
 # Application definition
@@ -122,5 +122,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'firstproject', 'static')
 ]
-
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com','13.124.43.232','ec2-13-124-43-232.ap-northeast-2.compute.amazonaws.com',]
